@@ -5,6 +5,12 @@
         "catch2",
         "spdlog",
         "fmt",
-        "docopt"
+        "docopt",
+        "sdl2",
+        {
+            "name": "imgui",
+            "default-features": true,
+            "features": ["sdl2-binding", "sdl2-renderer-binding"]
+        }
     ]
 }
