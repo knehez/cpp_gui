@@ -38,8 +38,14 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Install pip dependencies
+      if: runner.os != 'MacOS'
       run: |
         pip3 install wheel setuptools gcovr
+
+    - name: Install pip dependencies
+      if: runner.os == 'MacOS'
+      run: |
+        pip3 --use-pep517 install wheel setuptools gcovr
 
     - name: Install / Configure dependencies
       shell: bash
