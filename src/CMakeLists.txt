@@ -14,7 +14,8 @@ target_link_libraries(
           spdlog::spdlog 
           SDL2::SDL2 
           SDL2::SDL2main 
-          imgui::imgui)
+          imgui::imgui
+          )
 
 if(NOT MSVC)
   target_link_libraries(

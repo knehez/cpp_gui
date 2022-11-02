@@ -1,5 +1,7 @@
-#define CATCH_CONFIG_MAIN // This tells the catch header to generate a main
-
 #include <catch.hpp>
 
+TEST_CASE("Pass Tests")
+{
+    REQUIRE(1 == 1);
+}
 
