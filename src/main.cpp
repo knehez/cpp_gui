@@ -41,7 +41,7 @@ bool handleQuitEvent(const SDL_Event& event)
     return true;
 }
 
-int main([[maybe_unused]] int argc, [[maybe_unused]] const char **argv)
+int main([[maybe_unused]] int argc, [[maybe_unused]] const char *argv[])
 {
 
   std::map<std::string, docopt::value> args = docopt::docopt(USAGE,
