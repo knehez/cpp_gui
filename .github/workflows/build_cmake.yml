@@ -68,8 +68,8 @@ jobs:
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: cmake --build ./build --config $BUILD_TYPE
 
-    - name: Linux - Test and coverage
-      if: runner.os != 'Windows'
+    - name: Test and coverage
+      if: runner.os == 'Linux'
       working-directory: ./build
       # Execute tests defined by the CMake configuration.
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
@@ -95,13 +95,8 @@ jobs:
           # combine info files
           lcov -a coverage.info.baseline.cleaned -a coverage.info.cleaned -o coverage.info.combined
 
-    - name: Windows - Test and coverage
-      if: runner.os == 'Windows'
-      working-directory: ./build
-      run: |
-        OpenCppCoverage.exe --sources cpp_starter_project --export_type cobertura:coverage.xml --cover_children -- ctest -C $BUILD_TYPE
-
     - name: 'Upload Coverage Report'
+      if: runner.os == 'Linux'
       uses: zgosalvez/github-actions-report-lcov@v1.4.0
       with:
         coverage-files: ./build/coverage.info.combined
