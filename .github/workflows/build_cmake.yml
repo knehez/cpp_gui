@@ -87,7 +87,6 @@ jobs:
           ctest -C $BUILD_TYPE
           gcovr -j $(nproc) --delete --root ../ --print-summary --xml-pretty --xml coverage.xml .
 
-
     - name: Windows - Test and coverage
       if: runner.os == 'Windows'
       working-directory: ./build
