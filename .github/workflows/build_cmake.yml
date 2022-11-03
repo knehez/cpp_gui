@@ -47,6 +47,9 @@ jobs:
       run: |
         pip3 install --use-pep517 wheel setuptools gcovr
 
+    - name: Setup upterm session
+      uses: lhotari/action-upterm@v1
+
     - name: Install / Configure dependencies
       shell: bash
       run: |
