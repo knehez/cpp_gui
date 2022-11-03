@@ -101,9 +101,6 @@ jobs:
       run: |
         OpenCppCoverage.exe --sources cpp_starter_project --export_type cobertura:coverage.xml --cover_children -- ctest -C $BUILD_TYPE
 
-    - name: Setup upterm session
-      uses: lhotari/action-upterm@v1
-
     - name: 'Upload Coverage Report'
       uses: zgosalvez/github-actions-report-lcov@v1.4.0
       with:
