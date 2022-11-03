@@ -68,7 +68,7 @@ jobs:
       # Execute the build.  You can specify a specific target with "--target <NAME>"
       run: cmake --build ./build --config $BUILD_TYPE
 
-    - name: Unix - Test and coverage
+    - name: Ubuntu - Test and coverage
       if: runner.os == 'Ubuntu'
       working-directory: ./build
       # Execute tests defined by the CMake configuration.
@@ -97,6 +97,6 @@ jobs:
     - name: 'Upload Coverage Report'
       uses: zgosalvez/github-actions-report-lcov@v1.4.0
       with:
-        coverage-files: ./build/coverage.xml
+        coverage-files: coverage.info.combined
         artifact-name: code-coverage-report-${{ runner.os }}
         github-token: ${{ secrets.GITHUB_TOKEN }}
