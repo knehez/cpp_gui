@@ -1,11 +1,11 @@
 find_package(fmt CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
 find_package(docopt CONFIG REQUIRED)
-find_package(SDL2 CONFIG REQUIRED)
-find_package(imgui CONFIG REQUIRED)
 
-# Generic test
-add_executable(intro main.cpp)
+file(GLOB_RECURSE SOURCES *.h *.cpp)
+
+add_executable(intro ${SOURCES})
+
 target_link_libraries(
   intro
   PRIVATE project_options
